@@ -30,6 +30,8 @@ matrix:
     - os: linux
       env: TARGET=Windows VLC_VERSION=4.0
       script:
+        - python3 --version
+        - pip3 --version
         - .travis/script.sh
         - .travis/cirp/cleanup1.sh
         - .travis/cirp/store.sh "$TRAVIS_BUILD_DIR/artifacts"
