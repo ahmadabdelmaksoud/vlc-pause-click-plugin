@@ -30,8 +30,11 @@ matrix:
     - os: linux
       env: TARGET=Windows VLC_VERSION=4.0
       script:
-        - python3 --version
-        - pip3 --version
+        - python3 --version || true
+        - pip3 --version || true
+        - pyenv global $(python3 --version | grep '3\.[5-99]\.*' | tail -n1)
+        - python3 --version || true
+        - pip3 --version || true
         - .travis/script.sh
         - .travis/cirp/cleanup1.sh
         - .travis/cirp/store.sh "$TRAVIS_BUILD_DIR/artifacts"
