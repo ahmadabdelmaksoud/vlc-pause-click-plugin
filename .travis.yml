@@ -32,7 +32,8 @@ matrix:
       script:
         - python3 --version || true
         - pip3 --version || true
-        - pyenv global $(python3 --version | grep '3\.[5-99]\.*' | tail -n1)
+        - pyenv versions
+        - pyenv global $(pyenv versions | grep '3\.[5-99]\.*' | tail -n1)
         - python3 --version || true
         - pip3 --version || true
         - .travis/script.sh
